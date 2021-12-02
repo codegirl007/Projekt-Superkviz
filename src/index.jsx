@@ -1,18 +1,24 @@
-import React from 'react';
-import { render } from 'react-dom';
-import './style.css';
+import React from "react";
+import { render } from "react-dom";
+import { Footer } from "./components/Footer/Footer";
+import { Header } from "./components/Header/Header";
+import "./style.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Intro } from "./pages/Intro/Intro";
+import { Quizzes } from "./pages/Quizzes/Quizzes";
+import { Rating } from "./pages/Rating/Rating";
 
 const App = () => (
-  <>
-    {/*
-      Tady bude tvůj Superkvíz :)
+  <BrowserRouter>
+    <Header />
 
-      - HTML/CSS podklady máš ve složce /html-vzor
-      - vyzobej si ze souborů HTML a CSS pro svoje komponenty
-      - aplikace má nejméně 4 stránky (úvod, přehled kvízů, detail kvízu, žebříček)
-      - použij router (musíš si ho nainstalovat)
-    */}
-  </>
+    <Routes>
+      <Route path="/" element={<Intro />} />
+      <Route path="/quizzes" element={<Quizzes />} />
+      <Route path="/rating" element={<Rating />} />
+    </Routes>
+    <Footer />
+  </BrowserRouter>
 );
 
-render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector("#app"));
