@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import moncicak from "../../assets/images/quiz-images/moncicak.jpg";
-import snehurka from "../../assets/images/quiz-images/snehurka.jpg";
-import pivo from "../../assets/images/quiz-images/pivo.jpg";
+import { Link } from "react-router-dom";
 
 export const Quizzes = () => {
   const [data, setData] = useState(null);
@@ -23,9 +21,9 @@ export const Quizzes = () => {
             <div className="quiz-item__content">
               <h2 className="quiz-item__title">{quiz.title}</h2>
               <p className="quiz-item__questions">{quiz.questions}</p>
-              <a className="quiz-item__link" href="#">
+              <Link className="quiz-item__link" to={`/quiz/${quiz.id}/0`}>
                 Spustit kvíz
-              </a>
+              </Link>
             </div>
           </div>
         ))}
